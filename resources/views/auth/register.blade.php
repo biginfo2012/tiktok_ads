@@ -11,7 +11,18 @@
                     <div data-v-3a55e4f4="" class="form-main">
                         <form data-v-3a55e4f4="" class="el-form el-form--label-top" method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div data-v-3a55e4f4="" class="el-form-item is-error is-required is-no-asterisk"><label
+                            <div data-v-3a55e4f4="" class="el-form-item form-item-company is-no-asterisk">
+                                <label for="company" class="el-form-item__label">Name</label>
+                                <div class="el-form-item__content">
+                                    <p data-v-3a55e4f4="" class="text-input-type isEn"> (Required) </p>
+                                    <div data-v-3a55e4f4="" class="el-input"><!---->
+                                        <input type="text" autocomplete="off" placeholder="Please enter your name" class="el-input__inner"
+                                               name="name" required>
+                                        <!----><!----><!----><!---->
+                                    </div><!---->
+                                </div>
+                            </div><!---->
+                            <div data-v-3a55e4f4="" class="el-form-item is-success is-required is-no-asterisk"><label
                                     for="email" class="el-form-item__label">Email</label>
                                 <div class="el-form-item__content">
                                     <p data-v-3a55e4f4="" class="text-input-type type-email isEn"> (Required) </p>
@@ -28,28 +39,30 @@
                                     <div data-v-3a55e4f4="" class="el-input"><!---->
                                         <input type="password" autocomplete="off" placeholder="Please enter your password" class="el-input__inner"
                                             name="password" required>
-                                        <!----><!----><!----><!----></div>
-                                    <span data-v-3a55e4f4="" class="btn-password-set">
-                                        <svg data-v-7e6c6234="" data-v-3a55e4f4="" aria-hidden="true" class="svg-icon">
-                                            <use data-v-7e6c6234="" xlink:href="#icon-eye_close"></use>
-                                        </svg>
-                                        <span data-v-3a55e4f4="">Show password</span>
-                                    </span><!---->
+                                        <!----><!----><!----><!---->
+                                    </div>
                                 </div>
                             </div>
-                            <div data-v-3a55e4f4="" class="el-form-item form-item-company is-no-asterisk">
-                                <label for="company" class="el-form-item__label">Company</label>
+                            <div data-v-3a55e4f4="" class="el-form-item form-item-password is-success is-required is-no-asterisk"><label
+                                    for="password" class="el-form-item__label">Confirm Password</label>
                                 <div class="el-form-item__content">
-                                    <p data-v-3a55e4f4="" class="text-input-type isEn"> (Required) </p>
+                                    <p data-v-3a55e4f4="" class="text-input-type type-password isEn"> (Required) </p>
                                     <div data-v-3a55e4f4="" class="el-input"><!---->
-                                        <input type="text" autocomplete="off" placeholder="Please enter your company name" class="el-input__inner"
-                                            name="name" required>
+                                        <input type="password" autocomplete="off" placeholder="Please enter your password" class="el-input__inner"
+                                               name="password_confirmation" required>
                                         <!----><!----><!----><!---->
-                                    </div><!---->
+                                    </div>
+{{--                                    <span data-v-3a55e4f4="" class="btn-password-set">--}}
+{{--                                        <svg data-v-7e6c6234="" data-v-3a55e4f4="" aria-hidden="true" class="svg-icon">--}}
+{{--                                            <use data-v-7e6c6234="" xlink:href="#icon-eye_close"></use>--}}
+{{--                                        </svg>--}}
+{{--                                        <span data-v-3a55e4f4="">Show password</span>--}}
+{{--                                    </span><!---->--}}
                                 </div>
-                            </div><!---->
-                            <button data-v-3a55e4f4="" type="button" class="el-button button-lg el-button--primary"><!---->
-                                <!----><span>Create My Account</span>
+                            </div>
+
+                            <button data-v-3a55e4f4="" type="submit" class="el-button button-lg el-button--primary">
+                                Create My Account
                             </button>
                         </form>
                     </div>

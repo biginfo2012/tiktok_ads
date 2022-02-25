@@ -37,8 +37,8 @@
 {{--                                        Forgot your password? </a><!---->--}}
                                 </div>
                             </div>
-                            <button data-v-1999854e="" type="button" class="el-button button-lg el-button--primary"><!---->
-                                <!----><span>Sign In</span>
+                            <button data-v-1999854e="" type="submit" class="el-button button-lg el-button--primary">
+                                Sign In
                             </button>
                         </form>
                     </div>
