@@ -164,7 +164,7 @@
                                 <li data-v-0e997083="">
                                     <div data-v-0e997083="" class="item-inline">
                                         <div data-v-0e997083="" class="right">
-                                            <a data-v-0e997083="" href="/user-center" class="btn-link el-link el-link--default"> My Account </a>
+                                            <a data-v-0e997083="" href="{{route('user')}}" class="btn-link el-link el-link--default"> My Account </a>
 {{--                                            <a data-v-0e997083="" href="/user-center/payment" class="btn-link el-link el-link--default"> Payment </a>--}}
 {{--                                            <a data-v-0e997083="" href="/user-center/blocked" class="btn-link el-link el-link--default"> Blocked </a>--}}
                                         </div>

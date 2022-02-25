@@ -20,6 +20,9 @@
     {{--        <!-- Scripts -->--}}
     {{--        <script src="{{ asset('js/app.js') }}" defer></script>--}}
 
+    <link href="{{asset('')}}css/bootstrape/bootstrap.css" rel="stylesheet">
+
+
     <link href="{{asset('')}}css/chunk-00dd8346.ea3e1fcb.css" rel="stylesheet">
     <link href="{{asset('')}}css/chunk-00f21421.bdefae2e.css" rel="stylesheet">
     <link href="{{asset('')}}css/chunk-01693b7c.b66cbfb4.css" rel="stylesheet">
@@ -69,6 +72,10 @@
     <link href="{{asset('')}}css/chunk-f7efd4fc.e32c330e.css" rel="stylesheet">
     <link href="{{asset('')}}css/chunk-vendors.b9317e8b.css" rel="stylesheet">
     <link href="{{asset('')}}css/app.c3330493.css" rel="stylesheet">
+
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrape/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/common.js') }}"></script>
 </head>
 <body>
 <div id="app">
