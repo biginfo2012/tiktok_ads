@@ -1,18 +1,5 @@
 <x-app-layout>
     <div data-v-3de391ff="" class="container wrap"><h3 data-v-3de391ff="" class="title"> User Center </h3>
-{{--        <div data-v-5e9e8a16="" data-v-3de391ff="" class="page-header">--}}
-{{--            <div data-v-5e9e8a16="" class="top">--}}
-{{--                <div data-v-9ca3396c="" data-v-5e9e8a16="" class="navsTabs">--}}
-{{--                    <ul data-v-9ca3396c="" class="lists">--}}
-{{--                        <li data-v-9ca3396c="" id="item-0" class="current"><span data-v-9ca3396c="" class="item-text"><i--}}
-{{--                                    data-v-9ca3396c=""> My Account </i></span></li>--}}
-{{--                        <li data-v-9ca3396c="" id="item-1" class=""><span data-v-9ca3396c="" class="item-text"><i--}}
-{{--                                    data-v-9ca3396c=""> Payment </i></span></li>--}}
-{{--                        <div data-v-9ca3396c="" class="nav-underline" style="width: 72px; left: 0px;"></div>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         <div data-v-3d3074aa="" data-v-3de391ff="" class="user-center">
             <div data-v-3d3074aa="">
                 <div data-v-3d3074aa="" class="section-item section-base">
@@ -21,13 +8,6 @@
                     <div data-v-3d3074aa="" class="setion-main">
                         <form data-v-3d3074aa="" class="el-form">
                             <ul data-v-3d3074aa="">
-{{--                                <li data-v-3d3074aa=""><span data-v-3d3074aa="" class="label"> Company： </span>--}}
-{{--                                    <div data-v-3d3074aa="" class="value"><!---->--}}
-{{--                                        <div data-v-3d3074aa="" class="el-input"><!----><input type="text"--}}
-{{--                                                                                               autocomplete="off"--}}
-{{--                                                                                               class="el-input__inner">--}}
-{{--                                            <!----><!----><!----><!----></div><!----></div>--}}
-{{--                                </li>--}}
                                 <li data-v-3d3074aa="">
                                     <span data-v-3d3074aa="" class="label"> Email： </span>
                                     <div data-v-3d3074aa="" class="value">
@@ -51,15 +31,6 @@
                                         </div><!---->
                                     </div>
                                 </li>
-{{--                                <li data-v-3d3074aa="">--}}
-{{--                                    <span data-v-3d3074aa="" class="label"> Phone： </span>--}}
-{{--                                    <div data-v-3d3074aa="" class="value"><!---->--}}
-{{--                                        <div data-v-3d3074aa="" class="el-input"><!---->--}}
-{{--                                            <input type="text" autocomplete="off" class="el-input__inner">--}}
-{{--                                            <!----><!----><!----><!---->--}}
-{{--                                        </div><!---->--}}
-{{--                                    </div>--}}
-{{--                                </li>--}}
                                 <li data-v-3d3074aa="">
                                     <span data-v-3d3074aa="" class="label"> Password： </span>
                                     <div data-v-3d3074aa="" class="value"> *********
@@ -77,66 +48,6 @@
                         </form>
                     </div>
                 </div>
-{{--                <div data-v-3d3074aa="" class="section-item section-login">--}}
-{{--                    <div data-v-3d3074aa="" class="section-title"><h3 data-v-3d3074aa="" class="title"> Login--}}
-{{--                            Record </h3>--}}
-{{--                        <p data-v-3d3074aa="" class="desc"> Current version can only be used by up to 1 computers at the--}}
-{{--                            same time </p></div>--}}
-{{--                    <div data-v-3d3074aa="" class="table-normal">--}}
-{{--                        <table data-v-3d3074aa="">--}}
-{{--                            <thead data-v-3d3074aa="">--}}
-{{--                            <tr data-v-3d3074aa="">--}}
-{{--                                <th data-v-3d3074aa="" style="width: 26%;"> DeviceId</th>--}}
-{{--                                <th data-v-3d3074aa="" style="width: 30%;"> Device Information</th>--}}
-{{--                                <th data-v-3d3074aa="" style="width: 12%;"> Login IP</th>--}}
-{{--                                <th data-v-3d3074aa="" style="width: 10%;"> Login Time</th>--}}
-{{--                                <th data-v-3d3074aa="" style="width: 15%;"> Is the current device</th>--}}
-{{--                                <th data-v-3d3074aa="" style="width: auto;"><span data-v-3d3074aa="" class="action"> Delete Device </span>--}}
-{{--                                </th>--}}
-{{--                            </tr>--}}
-{{--                            </thead>--}}
-{{--                            <tbody data-v-3d3074aa="">--}}
-{{--                            <tr data-v-3d3074aa="">--}}
-{{--                                <td data-v-3d3074aa="" class="text-center"> 1420801161</td>--}}
-{{--                                <td data-v-3d3074aa=""> Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36--}}
-{{--                                    (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36--}}
-{{--                                </td>--}}
-{{--                                <td data-v-3d3074aa="" class="text-center"> 173.254.200.134</td>--}}
-{{--                                <td data-v-3d3074aa="" class="text-center"> Feb 24 2022</td>--}}
-{{--                                <td data-v-3d3074aa="" class="text-center"> Yes</td>--}}
-{{--                                <td data-v-3d3074aa="" class="text-center"><span data-v-3d3074aa="" class="btn-wrap"><button--}}
-{{--                                            data-v-3d3074aa="" type="button"--}}
-{{--                                            class="el-button el-button--primary el-button--small"><!----><!----><span>Delete Device</span></button></span>--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                            </tbody>--}}
-{{--                        </table>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div data-v-3d3074aa="" class="section-item section-level isEn">--}}
-{{--                    <h3 data-v-3d3074aa="" class="title">--}}
-{{--                        Membership </h3>--}}
-{{--                    <ul data-v-3d3074aa="">--}}
-{{--                        <li data-v-3d3074aa=""><p data-v-3d3074aa="" class="_attr">Current Membership:</p>--}}
-{{--                            <div data-v-3d3074aa="" class="_value level-info"><img data-v-3d3074aa=""--}}
-{{--                                                                                   src="/img/pipiads-basic.5533853f.png"--}}
-{{--                                                                                   alt="" class="leval-image"><span--}}
-{{--                                    data-v-3d3074aa="" class="level-name"> Free forever </span><a data-v-3d3074aa=""--}}
-{{--                                                                                                  href="/pricing"--}}
-{{--                                                                                                  class="">--}}
-{{--                                    <button data-v-3d3074aa="" type="button"--}}
-{{--                                            class="el-button el-button--primary el-button--mini"><!----><!----><span> Upgrade </span>--}}
-{{--                                    </button>--}}
-{{--                                </a></div>--}}
-{{--                        </li>--}}
-{{--                        <li data-v-3d3074aa=""><p data-v-3d3074aa="" class="_attr">Detail:</p>--}}
-{{--                            <div data-v-3d3074aa="" class="_value">--</div>--}}
-{{--                        </li>--}}
-{{--                        <li data-v-3d3074aa=""><p data-v-3d3074aa="" class="_attr">Expiration date:</p>--}}
-{{--                            <div data-v-3d3074aa="" class="_value"></div>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
             </div>
             <div data-v-3d3074aa="" class="el-dialog__wrapper" style="display: none;">
                 <div role="dialog" aria-modal="true" aria-label="Change password" class="el-dialog resetDialog"
@@ -277,63 +188,7 @@
                         </table>
                     </div>
                 </div><!---->
-{{--                <div data-v-13cd94f9="" class="section-item section-subscribe">--}}
-{{--                    <h3 data-v-13cd94f9="" class="title">--}}
-{{--                        Subscribe Methods</h3>--}}
-{{--                    <ul data-v-13cd94f9="" class="payment-info">--}}
-{{--                        <li data-v-13cd94f9=""><span data-v-13cd94f9="" class="item_attr">Auto-charge from: </span><span--}}
-{{--                                data-v-13cd94f9="" class="item_value"> None </span></li>--}}
-{{--                        <li data-v-13cd94f9=""><span data-v-13cd94f9=""--}}
-{{--                                                     class="item_attr">Subscription Method: </span><span--}}
-{{--                                data-v-13cd94f9="" class="item_value"> None <span data-v-13cd94f9=""--}}
-{{--                                                                                  class="text-subscribe UnSubscribe"> Unsubscribe </span></span>--}}
-{{--                        </li>--}}
-{{--                        <li data-v-13cd94f9=""><span data-v-13cd94f9=""--}}
-{{--                                                     class="item_attr">Subscription Status: </span><span--}}
-{{--                                data-v-13cd94f9="" class="item_value"> None </span></li>--}}
-{{--                        <li data-v-13cd94f9=""><span data-v-13cd94f9=""--}}
-{{--                                                     class="item_attr">Next Charge Amount: </span><span--}}
-{{--                                data-v-13cd94f9="" class="item_value"> None </span></li>--}}
-{{--                        <li data-v-13cd94f9=""><span data-v-13cd94f9="" class="item_attr">Next Charge Date: </span><span--}}
-{{--                                data-v-13cd94f9="" class="item_value"> None </span></li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
             </div>
-{{--            <div data-v-0b804bfe="" data-v-13cd94f9="" id="pdfDom" style="display: none;">--}}
-{{--                <div data-v-0b804bfe="" class="download-data"><img data-v-0b804bfe=""--}}
-{{--                                                                   src="/img/210x60-yingcai.1964864b.png" alt=""--}}
-{{--                                                                   class="logo">--}}
-{{--                    <h2 data-v-0b804bfe="" class="title text-center"> INVOICE </h2>--}}
-{{--                    <ul data-v-0b804bfe="" class="list-main">--}}
-{{--                        <li data-v-0b804bfe="" class="list-item"><h4 data-v-0b804bfe="">SELLER：</h4><h5--}}
-{{--                                data-v-0b804bfe=""> Name： PIPIADS</h5></li>--}}
-{{--                        <li data-v-0b804bfe="" class="list-item"><h4 data-v-0b804bfe="">BUYER：</h4><h5--}}
-{{--                                data-v-0b804bfe=""> Account： </h5></li>--}}
-{{--                        <li data-v-0b804bfe="" class="list-item"><h4 data-v-0b804bfe="">ORDER：</h4>--}}
-{{--                            <ul data-v-0b804bfe="">--}}
-{{--                                <li data-v-0b804bfe=""><h5 data-v-0b804bfe=""> Order ID： </h5></li>--}}
-{{--                                <li data-v-0b804bfe=""><h5 data-v-0b804bfe=""> Membership： </h5></li>--}}
-{{--                                <li data-v-0b804bfe=""><h5 data-v-0b804bfe=""> Purchase Duration： undefined days </h5>--}}
-{{--                                </li>--}}
-{{--                                <li data-v-0b804bfe=""><h5 data-v-0b804bfe=""> Amount： （Dollar） </h5></li>--}}
-{{--                                <li data-v-0b804bfe=""><h5 data-v-0b804bfe=""> Payment Time： </h5></li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <table data-v-0b804bfe="">--}}
-{{--                        <tbody data-v-0b804bfe="">--}}
-{{--                        <tr data-v-0b804bfe="">--}}
-{{--                            <td data-v-0b804bfe=""> Description</td>--}}
-{{--                            <td data-v-0b804bfe="">PIPIADS Member</td>--}}
-{{--                        </tr>--}}
-{{--                        <tr data-v-0b804bfe="">--}}
-{{--                            <td data-v-0b804bfe=""> Total</td>--}}
-{{--                            <td data-v-0b804bfe=""> （Dollar）</td>--}}
-{{--                        </tr>--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
     </div>
 </x-app-layout>
