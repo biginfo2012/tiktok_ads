@@ -3,40 +3,43 @@
         <div data-v-c30b9c7c="" id="sectionTop" class="section-top">
             <div data-v-c30b9c7c="">
                 <div data-v-c30b9c7c="" class="wrap">
-                    <div data-v-c30b9c7c="" class="filter-wrap filter-action">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>ジャンル</label>
-                                    <input type="text" class="form-control"/>
+                    <form id="search_form">
+                        @csrf
+                        <div data-v-c30b9c7c="" class="filter-wrap filter-action">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>ジャンル</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>遷移先形式</label>
-                                    <input type="text" class="form-control"/>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>遷移先形式</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="fp-range">日付選択</label>
-                                    <input type="text" id="fp-range" class="form-control flatpickr-range" placeholder="YYYY-MM-DD ~ YYYY-MM-DD" />
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="fp-range">日付選択</label>
+                                        <input type="text" id="fp-range" class="form-control flatpickr-range" placeholder="YYYY-MM-DD ~ YYYY-MM-DD" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div data-v-c30b9c7c="" class="data-view-sort">
-                        <div data-v-c30b9c7c="" class="wrap flex flex-wrap">
-                            <div data-v-c30b9c7c="" class="left">
-                            </div>
-                            <div data-v-c30b9c7c="" class="right">
-                                <a href="{{route('get-ad')}}" data-v-c30b9c7c="" type="button"
-                                        class="el-button btn-save-record el-button--primary"><!----><!---->
-                                    <span> 検索 </span>
-                                </a>
+                        <div data-v-c30b9c7c="" class="data-view-sort">
+                            <div data-v-c30b9c7c="" class="wrap flex flex-wrap">
+                                <div data-v-c30b9c7c="" class="left">
+                                </div>
+                                <div data-v-c30b9c7c="" class="right">
+                                    <button data-v-c30b9c7c="" type="button" id="searchBtn" class="el-button btn-save-record el-button--primary"><!----><!---->
+                                        <span> 検索 </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -147,7 +150,6 @@
                                             </div>
                                         </li>
                                     @endforeach
-
                                 </ul><!---->
                                 <div class="el-loading-mask" style="display: none;">
                                     <div class="el-loading-spinner"><i class="el-icon-loading"></i>
@@ -219,7 +221,9 @@
             $('.flatpickr-range').flatpickr({
                 mode: 'range'
             });
+            $('#searchBtn').click(function () {
 
+            })
         })
     </script>
 </x-app-layout>

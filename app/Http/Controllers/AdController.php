@@ -60,8 +60,6 @@ class AdController extends Controller
             Log::info('client_email: ' . $accounts[$num]['email']);
             $this->searchAd($accounts[$num]['access_token'], $accounts[$num]['device_id']);
         }
-
-        return response()->json(['status' => true]);
     }
 
     public function searchAd($accss_token, $device_id){
@@ -128,6 +126,7 @@ class AdController extends Controller
     }
 
     public function dashboard(){
+        $this->getAd();
         $data = AdData::orderBy('updated_at', 'desc')->take(20)->get();
         return view('dashboard', compact('data'));
     }

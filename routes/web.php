@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function (){
         return view('user');
     })->name('user');
 
-    Route::get('get-ad', [AdController::class, 'getAd'])->name('get-ad');
+    Route::get('get-ad', [AdController::class, 'getAdData'])->name('get-ad');
 
 });
 
