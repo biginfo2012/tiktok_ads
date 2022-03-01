@@ -6,7 +6,7 @@
             <div data-v-24d58c84="" class="flex wt-align-items-center"><span data-v-24d58c84=""
                                                                              class="btn md:hidden px-3"><i
                         data-v-24d58c84="" class="el-icon-s-unfold"></i></span>
-                <a data-v-24d58c84="" href="{{route('dashboard')}}}" class="hidden md:block router-link-active">
+                <a data-v-24d58c84="" href="{{route('dashboard')}}" class="hidden md:block router-link-active">
                     <img data-v-24d58c84="" src="" alt="" class="pipi-logo h-9 wt-mr-md-3"></a><!---->
                 <div data-v-24d58c84="" class="menus hidden md:block">
                 </div>
@@ -23,7 +23,7 @@
                                 <li data-v-0e997083="">
                                     <div data-v-0e997083="" class="item-inline">
                                         <div data-v-0e997083="" class="right">
-                                            <a data-v-0e997083="" href="{{route('user')}}" class="btn-link el-link el-link--default"> My Account </a>
+                                            <a data-v-0e997083="" href="{{route('user')}}" class="btn-link el-link el-link--default"> アカウント設定 </a>
                                         </div>
                                     </div>
                                 </li>
@@ -32,7 +32,7 @@
                                         @csrf
                                         <a data-v-0e997083="" class="btn-logout" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                            Log 0ut
+                                            ログアウト
                                         </a>
                                     </form>
 

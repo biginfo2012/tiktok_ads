@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('dashboard', [AdController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('detail/{id}', [AdController::class, 'detail'])->name('detail');
+
+    Route::get('/user', function () {
+        return view('user');
+    })->name('user');
+
+    Route::get('get-ad', [AdController::class, 'getAd'])->name('get-ad');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/detail', function () {
-    return view('detail');
-})->middleware(['auth'])->name('detail');
-
-Route::get('/user', function () {
-    return view('user');
-})->middleware(['auth'])->name('user');
 
 require __DIR__.'/auth.php';

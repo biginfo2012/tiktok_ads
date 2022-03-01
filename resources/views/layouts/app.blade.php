@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <link href="{{asset('')}}css/bootstrape/bootstrap.css" rel="stylesheet">
+    <link href="{{asset('')}}css/flatpickr.min.css" rel="stylesheet">
 
     <link href="{{asset('')}}css/chunk-1c1feffb.2a3a9f4f.css" rel="stylesheet">
     <link href="{{asset('')}}css/chunk-3c6e3d14.fd2709f6.css" rel="stylesheet">
@@ -31,9 +32,11 @@
     <link href="{{asset('')}}css/chunk-vendors.b9317e8b.css" rel="stylesheet">
     <link href="{{asset('')}}css/app.c3330493.css" rel="stylesheet">
 
+
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/bootstrape/bootstrap.js') }}"></script>
     <script src="{{ asset('js/common.js') }}"></script>
+    <script src="{{ asset('js/flatpickr.min.js') }}"></script>
 </head>
 <body>
 <div id="app">

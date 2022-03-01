@@ -59,8 +59,8 @@
     <div data-v-08551981="" class="f-bg f-bottom">
         <div data-v-08551981=""
              class="flex justify-between flex-wrap  wt-body-max-width wt-pl-xs-2 wt-pr-xs-2 wt-pl-md-4 wt-pr-md-4 wt-pr-lg-6 wt-pl-lg-6">
-            <div data-v-08551981="" class="sm:w-auto f-bottom-item text-center"> Company Inc., TEXT</div>
-            <div data-v-08551981="" class="sm:w-auto f-bottom-item text-center"> @2022 Company.All Rights Reserved.</div>
+            <div data-v-08551981="" class="sm:w-auto f-bottom-item text-center"> PAKAICHI-TTchecker Inc.</div>
+            <div data-v-08551981="" class="sm:w-auto f-bottom-item text-center"> @2022 PAKAICHI-TTchecker All Rights Reserved.</div>
         </div>
     </div>
 </footer><!---->

@@ -4,52 +4,49 @@
             <div data-v-3a55e4f4="" class="reg__right-pannel flex-1 w-full text-center">
                 <div data-v-3a55e4f4="" class="commmon-form">
                     <div data-v-3a55e4f4="" class="form-title">
-                        <p data-v-3a55e4f4="" class="title"> Sign Up </p>
-                        <p data-v-3a55e4f4="" class="desc"> Quick and easy registration to quickly find the most popular
-                            TikTok ads and products </p>
+                        <p data-v-3a55e4f4="" class="title"> 登録 </p>
                     </div>
                     <div data-v-3a55e4f4="" class="form-main">
                         <form data-v-3a55e4f4="" class="el-form el-form--label-top" method="POST" action="{{ route('register') }}">
                             @csrf
                             <div data-v-3a55e4f4="" class="el-form-item form-item-company is-no-asterisk">
-                                <label for="company" class="el-form-item__label">Name</label>
+                                <label for="company" class="el-form-item__label">名前*</label>
                                 <div class="el-form-item__content">
-                                    <p data-v-3a55e4f4="" class="text-input-type isEn"> (Required) </p>
                                     <div data-v-3a55e4f4="" class="el-input"><!---->
-                                        <input type="text" autocomplete="off" placeholder="Please enter your name" class="el-input__inner"
+                                        <input type="text" autocomplete="off" placeholder="名前を入力してください" class="el-input__inner"
                                                name="name" required>
                                         <!----><!----><!----><!---->
                                     </div><!---->
                                 </div>
                             </div><!---->
                             <div data-v-3a55e4f4="" class="el-form-item is-success is-required is-no-asterisk"><label
-                                    for="email" class="el-form-item__label">Email</label>
+                                    for="email" class="el-form-item__label">メールアドレス*</label>
                                 <div class="el-form-item__content">
-                                    <p data-v-3a55e4f4="" class="text-input-type type-email isEn"> (Required) </p>
+                                    <p data-v-3a55e4f4="" class="text-input-type type-email isEn"></p>
                                     <div data-v-3a55e4f4="" class="el-input"><!---->
-                                        <input type="email" autocomplete="off" placeholder="Please enter your email address" class="el-input__inner"
+                                        <input type="email" autocomplete="off" placeholder="メールアドレスを入力してください" class="el-input__inner"
                                             name="email" required>
                                         <!----><!----><!----><!----></div>
                                 </div>
                             </div>
                             <div data-v-3a55e4f4="" class="el-form-item form-item-password is-success is-required is-no-asterisk"><label
-                                    for="password" class="el-form-item__label">Password</label>
+                                    for="password" class="el-form-item__label">パスワード*</label>
                                 <div class="el-form-item__content">
-                                    <p data-v-3a55e4f4="" class="text-input-type type-password isEn"> (Required) </p>
+                                    <p data-v-3a55e4f4="" class="text-input-type type-password isEn"></p>
                                     <div data-v-3a55e4f4="" class="el-input"><!---->
-                                        <input type="password" autocomplete="off" placeholder="Please enter your password" class="el-input__inner"
-                                            name="password" required>
+                                        <input type="password" autocomplete="off" placeholder="パスワードを入力してください" class="el-input__inner"
+                                            name="password" minlength="8" required>
                                         <!----><!----><!----><!---->
                                     </div>
                                 </div>
                             </div>
                             <div data-v-3a55e4f4="" class="el-form-item form-item-password is-success is-required is-no-asterisk"><label
-                                    for="password" class="el-form-item__label">Confirm Password</label>
+                                    for="password" class="el-form-item__label">パスワードの確認*</label>
                                 <div class="el-form-item__content">
-                                    <p data-v-3a55e4f4="" class="text-input-type type-password isEn"> (Required) </p>
+                                    <p data-v-3a55e4f4="" class="text-input-type type-password isEn"></p>
                                     <div data-v-3a55e4f4="" class="el-input"><!---->
-                                        <input type="password" autocomplete="off" placeholder="Please enter your password" class="el-input__inner"
-                                               name="password_confirmation" required>
+                                        <input type="password" autocomplete="off" placeholder="確認パスワードを入力してください" class="el-input__inner"
+                                               name="password_confirmation" minlength="8" required>
                                         <!----><!----><!----><!---->
                                     </div>
 {{--                                    <span data-v-3a55e4f4="" class="btn-password-set">--}}
@@ -62,15 +59,15 @@
                             </div>
 
                             <button data-v-3a55e4f4="" type="submit" class="el-button button-lg el-button--primary">
-                                Create My Account
+                                マイアカウントの作成
                             </button>
                         </form>
                     </div>
                     <div data-v-3a55e4f4="" class="text-sub2">
-                        <span data-v-3a55e4f4="" class="text">Already have an account?</span>
+                        <span data-v-3a55e4f4="" class="text">既にアカウントをお持ちですか?</span>
                         <a data-v-3a55e4f4="" href="{{route('login')}}" class="">
                             <button data-v-3a55e4f4="" type="button" class="el-button link el-button--text"><!---->
-                                <!----><span> Login Now</span>
+                                <!----><span>ログイン</span>
                             </button>
                         </a>
                     </div>

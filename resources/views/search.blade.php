@@ -1,76 +1,11 @@
 <x-app-layout>
     <div data-v-c30b9c7c="" class="search">
         <div data-v-c30b9c7c="" id="sectionTop" class="section-top">
-{{--            <div data-v-c30b9c7c="" class="wrap" style="display: none !important;">--}}
-{{--                <div data-v-c30b9c7c="" class="header">--}}
-{{--                    <div data-v-41dc7ffe="" data-v-c30b9c7c="" class="el-select select-type hadVal"--}}
-{{--                         style="max-width: unset;"><!---->--}}
-{{--                        <div class="el-input el-input--suffix"><!---->--}}
-{{--                            <input type="text" readonly="readonly" autocomplete="off" placeholder="" class="el-input__inner"><!---->--}}
-{{--                            <span class="el-input__suffix">--}}
-{{--                                <span class="el-input__suffix-inner">--}}
-{{--                                    <i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!---->--}}
-{{--                                    <!----><!----><!---->--}}
-{{--                                </span><!---->--}}
-{{--                            </span><!----><!---->--}}
-{{--                        </div>--}}
-{{--                        <div class="el-select-dropdown el-popper" style="display: none; min-width: 130px;">--}}
-{{--                            <div class="el-scrollbar" style="">--}}
-{{--                                <div class="el-select-dropdown__wrap el-scrollbar__wrap"--}}
-{{--                                     style="margin-bottom: -17px; margin-right: -17px;">--}}
-{{--                                    <ul class="el-scrollbar__view el-select-dropdown__list"><!---->--}}
-{{--                                        <li data-v-41dc7ffe="" class="el-select-dropdown__item selected"> Ad--}}
-{{--                                            Keyword--}}
-{{--                                        </li>--}}
-{{--                                        <li data-v-41dc7ffe="" class="el-select-dropdown__item"> Ad Text</li>--}}
-{{--                                        <li data-v-41dc7ffe="" class="el-select-dropdown__item"> Advertiser Name--}}
-{{--                                        </li>--}}
-{{--                                        <li data-v-41dc7ffe="" class="el-select-dropdown__item"> Landing Page</li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                                <div class="el-scrollbar__bar is-horizontal">--}}
-{{--                                    <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>--}}
-{{--                                </div>--}}
-{{--                                <div class="el-scrollbar__bar is-vertical">--}}
-{{--                                    <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>--}}
-{{--                                </div>--}}
-{{--                            </div><!---->--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <form data-v-a58bc572="" data-v-c30b9c7c="" class="el-form searchForm">--}}
-{{--                        <div data-v-a58bc572="" class="el-form-item"><!---->--}}
-{{--                            <div class="el-form-item__content">--}}
-{{--                                <div data-v-a58bc572="" class="el-input el-input-group el-input-group--append">--}}
-{{--                                    <input tabindex="2" type="text" autocomplete="on" placeholder="Please enter any ad keyword" class="el-input__inner">--}}
-{{--                                    <!----><!---->--}}
-{{--                                    <div class="el-input-group__append">--}}
-{{--                                        <button data-v-a58bc572="" type="button"--}}
-{{--                                                class="el-button btn-search el-button--primary"><!----><!---->--}}
-{{--                                            <span><svg--}}
-{{--                                                    data-v-7e6c6234="" data-v-a58bc572="" aria-hidden="true"--}}
-{{--                                                    class="svg-icon"><use data-v-7e6c6234=""--}}
-{{--                                                                          xlink:href="#icon-sousuo2"></use></svg></span>--}}
-{{--                                        </button>--}}
-{{--                                    </div><!----></div><!---->--}}
-{{--                                <div data-v-a58bc572="" class="btn-add-search">--}}
-{{--                                    <svg data-v-7e6c6234="" data-v-a58bc572="" aria-hidden="true" class="svg-icon">--}}
-{{--                                        <use data-v-7e6c6234="" xlink:href="#icon-tianjia"></use>--}}
-{{--                                    </svg>--}}
-{{--                                    <span data-v-a58bc572="" class="text">Add to Filters</span></div><!----></div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                    <div data-v-c30b9c7c="" class="btn-handle-fold"> Fold--}}
-{{--                        <svg data-v-7e6c6234="" data-v-c30b9c7c="" aria-hidden="true" class="svg-icon">--}}
-{{--                            <use data-v-7e6c6234="" xlink:href="#icon-zhankai2"></use>--}}
-{{--                        </svg>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <div data-v-c30b9c7c="">
                 <div data-v-c30b9c7c="" class="wrap">
                     <div data-v-c30b9c7c="" class="filter-wrap filter-action">
                         <div data-v-c30b9c7c="" class="select-container-item">
-                            <div data-v-c30b9c7c="" class="label">Period：</div>
+                            <div data-v-c30b9c7c="" class="label">日付選択：</div>
                             <div data-v-c30b9c7c="" class="select-main">
                                 <div data-v-c30b9c7c="" class="select-item">
                                     <div data-v-429e5d34="" data-v-c30b9c7c=""
@@ -103,13 +38,9 @@
                         <div data-v-c30b9c7c="" class="right">
                             <div data-v-41dc7ffe="" data-v-c30b9c7c="" class="el-select hadVal"
                                  style="max-width: 141.709px;"><!---->
-                                <div class="el-input el-input--suffix"><!----><input type="text" readonly="readonly"
-                                                                                     autocomplete="off"
-                                                                                     placeholder="Show"
-                                                                                     class="el-input__inner"><!----><span
-                                        class="el-input__suffix"><span class="el-input__suffix-inner"><i
-                                                class="el-select__caret el-input__icon el-icon-arrow-up"></i><!---->
-                                            <!----><!----><!----><!----></span><!----></span><!----><!----></div>
+                                <div class="el-input el-input--suffix"><!---->
+                                    <input type="text" readonly="readonly" autocomplete="off" placeholder="Show" class="el-input__inner">
+                                </div>
                                 <div class="el-select-dropdown el-popper"
                                      style="display: none; min-width: 141.703px;">
                                     <div class="el-scrollbar" style="">

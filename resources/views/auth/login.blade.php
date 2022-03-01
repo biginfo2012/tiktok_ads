@@ -2,18 +2,20 @@
 
     <div data-v-1999854e="" class="login__wrapper">
         <div data-v-1999854e="" class="login__container flex">
-            <div data-v-1999854e="" class="login__right-pannel flex-1 w-full text-center" style="padding: ">
+            <div data-v-1999854e="" class="login__right-pannel flex-1 w-full text-center" style="">
                 <div data-v-1999854e="" class="commmon-form">
-                    <div data-v-1999854e="" class="form-title"><p data-v-1999854e="" class="title"> Login </p>
-                        <p data-v-1999854e="" class="desc"> Welcome </p></div>
+                    <div data-v-1999854e="" class="form-title">
+                        <p data-v-1999854e="" class="title"> Login </p>
+{{--                        <p data-v-1999854e="" class="desc"> Welcome </p>--}}
+                    </div>
                     <div data-v-1999854e="" class="form-main">
                         <form data-v-1999854e="" class="el-form el-form--label-top" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div data-v-1999854e="" class="el-form-item is-success is-required is-no-asterisk">
-                                <label for="email" class="el-form-item__label">Email</label>
+                                <label for="email" class="el-form-item__label">メールアドレス</label>
                                 <div class="el-form-item__content">
                                     <div data-v-1999854e="" class="el-input"><!---->
-                                        <input autocomplete="off" placeholder="Please enter your email address" class="el-input__inner"
+                                        <input autocomplete="off" placeholder="メールアドレスを入力してください" class="el-input__inner"
                                                type="email" name="email" required autofocus>
                                         <!----><!----><!----><!---->
                                     </div><!---->
@@ -21,10 +23,10 @@
                             </div>
                             <div data-v-1999854e=""
                                  class="el-form-item form-item-password is-success is-required is-no-asterisk">
-                                <label for="password" class="el-form-item__label">Password</label>
+                                <label for="password" class="el-form-item__label">パスワード</label>
                                 <div class="el-form-item__content">
                                     <div data-v-1999854e="" class="el-input"><!---->
-                                        <input type="password" autocomplete="off" placeholder="Please enter your password" class="el-input__inner"
+                                        <input type="password" autocomplete="off" placeholder="パスワードを入力してください" class="el-input__inner"
                                                name="password" required>
                                         <!----><!----><!----><!----></div>
 {{--                                    <span data-v-1999854e="" class="btn-password-set">--}}
@@ -38,16 +40,16 @@
                                 </div>
                             </div>
                             <button data-v-1999854e="" type="submit" class="el-button button-lg el-button--primary">
-                                Sign In
+                                ログイン
                             </button>
                         </form>
                     </div>
 
                     <div data-v-1999854e="" class="text-sub">
-                        <span data-v-1999854e="" class="text">Don't have an account yet?</span>
+                        <span data-v-1999854e="" class="text">登録されたアカウントがありませんか。</span>
                         <a data-v-1999854e="" href="{{ route('register') }}" class="">
                             <button data-v-1999854e="" type="button" class="el-button link el-button--text"><!---->
-                                <!----><span> Sign Up</span>
+                                <!----><span>登録する</span>
                             </button>
                         </a>
                     </div>
