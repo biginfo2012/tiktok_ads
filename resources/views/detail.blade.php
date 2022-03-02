@@ -50,23 +50,24 @@
                                     <div data-v-8f6c04e0="" class="left-bottom">
                                         <div data-v-8f6c04e0="" class="data-box">
                                             <div data-v-8f6c04e0="" class="item">
-                                                <svg data-v-7e6c6234="" data-v-8f6c04e0="" aria-hidden="true"
-                                                     class="svg-icon">
-                                                    <use data-v-7e6c6234="" xlink:href="#icon-xihuande2"></use>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
+                                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
                                                 </svg>
-                                                <i data-v-8f6c04e0=""> {{$data->play_count}} </i></div>
+                                                <i data-v-8f6c04e0=""> {{kmb($data->play_count)}} </i></div>
                                             <div data-v-8f6c04e0="" class="item text-center">
-                                                <svg data-v-7e6c6234="" data-v-8f6c04e0="" aria-hidden="true"
-                                                     class="svg-icon">
-                                                    <use data-v-7e6c6234="" xlink:href="#icon-pinglun1"></use>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2">
+                                                    <circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle>
+                                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                                                 </svg>
                                                 <i data-v-8f6c04e0=""> {{$data->share_count}} </i></div>
                                             <div data-v-8f6c04e0="" class="item text-right">
-                                                <svg data-v-7e6c6234="" data-v-8f6c04e0="" aria-hidden="true"
-                                                     class="svg-icon">
-                                                    <use data-v-7e6c6234="" xlink:href="#icon-fenxinag2"></use>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                                                 </svg>
-                                                <i data-v-8f6c04e0=""> {{$data->digg_count}} </i></div>
+                                                <i data-v-8f6c04e0=""> {{kmb($data->digg_count)}} </i></div>
                                         </div>
                                     </div>
                                 </div>
@@ -145,6 +146,33 @@
                                                     <a data-v-8f6c04e0="" href="{{$data->app_url}}" target="_blank" class="btn">{{$data->app_url}}</a>
                                                 </p>
                                             </li>
+                                            <li data-v-8f6c04e0="">
+                                                <form id="save_form">
+                                                    @csrf
+                                                    <div data-v-c30b9c7c="" class="filter-wrap filter-action">
+                                                        <div class="row">
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <label>ジャンル</label>
+                                                                    <input type="text" class="form-control" name="genre" value="{{$data->genre}}"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <label>遷移先形式</label>
+                                                                    <input type="text" class="form-control" name="dest" value="{{$data->dest}}"/>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" name="id" value="{{$data->id}}">
+                                                            <div class="col-md-2" style="margin-top: 26px">
+                                                                <button data-v-c30b9c7c="" type="button" id="saveBtn" class="el-button btn-save-record el-button--primary"><!----><!---->
+                                                                    <span> 変更 </span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -186,4 +214,22 @@
             </div>
         </div>
     </div>
+    <script>
+        let get_ad = '{{route('save-ad')}}';
+        $('#saveBtn').click(function (e) {
+            e.preventDefault();
+            var paramObj = new FormData($('#save_form')[0]);
+            $.ajax({
+                url: get_ad,
+                type: 'post',
+                data: paramObj,
+                contentType: false,
+                processData: false,
+                success: function(response){
+
+                },
+            });
+        })
+
+    </script>
 </x-app-layout>

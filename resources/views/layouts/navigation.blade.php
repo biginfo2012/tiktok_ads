@@ -3,11 +3,10 @@
          class="wt-grid wt-body-max-width wt-pr-xs-1 wt-pl-xs-1 wt-pr-md-2 wt-pl-md-2 wt-pr-lg-3 wt-pl-lg-3">
         <div data-v-24d58c84=""
              class="wt-grid__item-xs-12 wt-pr-xs-1 wt-pl-xs-1 wt-pr-md-2 wt-pl-md-2 wt-pr-lg-3 wt-pl-lg-3">
-            <div data-v-24d58c84="" class="flex wt-align-items-center"><span data-v-24d58c84=""
-                                                                             class="btn md:hidden px-3"><i
-                        data-v-24d58c84="" class="el-icon-s-unfold"></i></span>
+            <div data-v-24d58c84="" class="flex wt-align-items-center">
                 <a data-v-24d58c84="" href="{{route('dashboard')}}" class="hidden md:block router-link-active">
-                    <img data-v-24d58c84="" src="" alt="" class="pipi-logo h-9 wt-mr-md-3"></a><!---->
+                    <img data-v-24d58c84="" src="{{asset('img/logo.png')}}" alt="" class="pipi-logo h-9 wt-mr-md-3">
+                </a><!---->
                 <div data-v-24d58c84="" class="menus hidden md:block">
                 </div>
                 <div data-v-0e997083="" data-v-24d58c84="" class="user-box" userinfo="[object Object]">

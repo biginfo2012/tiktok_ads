@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\AdData;
+use App\Models\AdFav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class AdController extends Controller
@@ -30,6 +32,7 @@ class AdController extends Controller
         if ($httpcode == 200)
         {
             $tokenData = json_decode($response, true);
+            Log::info('login email: ' . $email);
             Account::where('email', $email)->update(['access_token' => $tokenData['access_token'], 'device_id' => $device]);
             return true;
         }
@@ -121,18 +124,100 @@ class AdController extends Controller
         }
         else{
             Log::error('searchAd error:' . $response);
+            $account = Account::where('access_token', $accss_token)->where('device_id', $device_id)->first();
+            $this->loginAd($account->email, $account->password);
             return false;
         }
     }
 
     public function dashboard(){
         $this->getAd();
-        $data = AdData::orderBy('updated_at', 'desc')->take(20)->get();
-        return view('dashboard', compact('data'));
+        return view('dashboard');
     }
 
     public function detail($id){
         $data = AdData::find($id);
         return view('detail', compact('data'));
+    }
+
+    public function getAdData(Request $request){
+        $duration = $request->duration;
+        $page = $request->page;
+        if (!isset($duration)) {
+            $start_date = strtotime('1900-01-01 00:00:00');
+            $end_date = strtotime('2200-01-01 00:00:00');
+        }
+        else {
+            $arr = explode(' to ', $duration);
+            if(count($arr) == 1){
+                $start_date = strtotime(date('Y-m-d', strtotime($arr[0])) . ' 00:00:00');
+                $end_date = strtotime(date('Y-m-d', strtotime($arr[0])) . ' 23:59:59');
+            }
+            else{
+                $start_date = strtotime(date('Y-m-d', strtotime($arr[0])) . ' 00:00:00');
+                $end_date = strtotime(date('Y-m-d', strtotime($arr[1])) . ' 23:59:59');
+            }
+        }
+        if(isset($request->genre)){
+            if(isset($request->dest)){
+                $total = AdData::where('genre', 'like', '%' . $request->genre . '%')->where('dest', '%' . $request->dest . '%')
+                    ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
+                $data = AdData::where('genre', 'like', '%' . $request->genre . '%')->where('dest', '%' . $request->dest . '%')
+                    ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                    ->offset(($page - 1) * 20)->limit(20)
+                    ->orderBy('updated_at', 'desc')->get();
+            }
+            else{
+                $total = AdData::where('genre', 'like', '%' . $request->genre . '%')
+                    ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
+                $data = AdData::where('genre', 'like', '%' . $request->genre . '%')
+                    ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                    ->offset(($page - 1) * 20)->limit(20)
+                    ->orderBy('updated_at', 'desc')->get();
+            }
+        }
+        else{
+            if(isset($request->dest)){
+                $total = AdData::where('dest', '%' . $request->dest . '%')
+                    ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
+                $data = AdData::where('dest', '%' . $request->dest . '%')
+                    ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                    ->offset(($page - 1) * 20)->limit(20)
+                    ->orderBy('updated_at', 'desc')->get();
+            }
+            else{
+                $total = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
+                $data = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                    ->offset(($page - 1) * 20)->limit(20)
+                    ->orderBy('updated_at', 'desc')->get();
+            }
+        }
+
+        $page_count = (int)($total/20);
+        if($total > $page_count * 20){
+            $page_count = $page_count +1;
+        }
+        foreach ($data as $item){
+            $fav = AdFav::where('user_id', Auth::user()->id)->where('ad_id', $item->id)->first();
+            if(isset($fav)){
+                $item->genre_id = 1;
+            }
+        }
+
+        return view('ad-list', compact('total', 'data', 'page', 'page_count'));
+    }
+    public function favAd(Request $request){
+        $user_id = Auth::user()->id;
+        if($request->type == 0){
+            AdFav::where('user_id', $user_id)->where('ad_id', $request->id)->delete();
+        }
+        else{
+            AdFav::create(['user_id' => $user_id, 'ad_id' => $request->id]);
+        }
+        return response()->json(['status' => true]);
+    }
+    public function saveAd(Request $request){
+        AdData::where('id', $request->id)->update(['genre' => $request->genre, 'dest' => $request->dest]);
+        return response()->json(['status' => true]);
     }
 }

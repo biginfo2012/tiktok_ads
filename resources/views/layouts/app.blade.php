@@ -37,6 +37,7 @@
     <script src="{{ asset('js/bootstrape/bootstrap.js') }}"></script>
     <script src="{{ asset('js/common.js') }}"></script>
     <script src="{{ asset('js/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.js') }}"></script>
 </head>
 <body>
 <div id="app">

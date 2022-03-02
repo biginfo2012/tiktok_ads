@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,12 @@ Route::group(['middleware' => 'auth'], function (){
         return view('user');
     })->name('user');
 
-    Route::get('get-ad', [AdController::class, 'getAdData'])->name('get-ad');
+    Route::post('get-ad', [AdController::class, 'getAdData'])->name('get-ad');
+    Route::post('fav-ad', [AdController::class, 'favAd'])->name('fav-ad');
+    Route::post('save-ad', [AdController::class, 'saveAd'])->name('save-ad');
+    Route::post('modify', [UserController::class, 'modify'])->name('modify');
+    Route::post('pw-modify', [UserController::class, 'pwModify'])->name('pw-modify');
+    Route::post('pay', [UserController::class, 'pay'])->name('pay');
 
 });
 
