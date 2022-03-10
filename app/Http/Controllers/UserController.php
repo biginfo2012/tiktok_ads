@@ -150,4 +150,19 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    public function contact(){
+        return view('contact');
+    }
+
+    public function sendContact(Request $request){
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'detail' => $request->detail,
+            'title' => $request->title
+        ];
+        sendContactEmail($data, 'customer@rmj-ltd.com');
+        return response()->json(['status' => true]);
+    }
 }

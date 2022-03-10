@@ -133,11 +133,8 @@
                                             <li data-v-8f6c04e0="">
                                                 <p data-v-8f6c04e0="" class="_attr">TikTok Url:</p>
                                                 <p data-v-8f6c04e0="" class="_value">
-                                                    <span data-v-8f6c04e0="" target="_blank" data-clipboard-text="{{$data->url}}" title="{{$data->url}}" class="btn adTikUrl">{{$data->url}}
-                                                        <svg data-v-7e6c6234="" data-v-8f6c04e0="" aria-hidden="true" class="icon-copy svg-icon">
-                                                            <use data-v-7e6c6234="" xlink:href="#icon-fuzhi3"></use>
-                                                        </svg>
-                                                    </span>
+                                                    <a data-v-8f6c04e0="" target="_blank" href="{{$data->url}}" class="btn adTikUrl">{{$data->url}}
+                                                    </a>
                                                 </p>
                                             </li>
                                             <li data-v-8f6c04e0="">

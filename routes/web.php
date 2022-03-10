@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('modify', [UserController::class, 'modify'])->name('modify');
     Route::post('pw-modify', [UserController::class, 'pwModify'])->name('pw-modify');
     Route::post('pay', [UserController::class, 'pay'])->name('pay');
+    Route::get('contact', [UserController::class, 'contact'])->name('contact');
+    Route::post('send-contact', [UserController::class, 'sendContact'])->name('send-contact');
 
 });
 

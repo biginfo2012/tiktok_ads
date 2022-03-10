@@ -9,24 +9,26 @@
                         <div data-v-686e7260="" class="top">
                             <div data-v-686e7260="" class="top-base">
                                                         <span data-v-686e7260="" index="23">
-                                                            <div role="tooltip" id="el-popover-{{$item->id}}" aria-hidden="true" class="el-popover el-popper actionDrop" tabindex="0"
-                                                                 style="width: 180px; display: none;"><!---->
-                                                                <ul data-v-686e7260="">
-                                                                    <li data-v-686e7260="" class="isFirst">
-                                                                        <a data-v-686e7260="" href="{{route('detail', $item->id)}}" class="link-item title a-link" target="_blank"> 広告詳細 </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
+{{--                                                            <div role="tooltip" id="el-popover-{{$item->id}}" aria-hidden="true" class="el-popover el-popper actionDrop" tabindex="0"--}}
+{{--                                                                 style="width: 180px; display: none;"><!---->--}}
+{{--                                                                <ul data-v-686e7260="">--}}
+{{--                                                                    <li data-v-686e7260="" class="isFirst">--}}
+{{--                                                                        <a data-v-686e7260="" href="{{route('detail', $item->id)}}" class="link-item title a-link" target="_blank"> 広告詳細 </a>--}}
+{{--                                                                    </li>--}}
+{{--                                                                </ul>--}}
+{{--                                                            </div>--}}
                                                             <span class="el-popover__reference-wrapper">
                                                                 <div data-v-686e7260="" class="pro-info el-popover__reference" aria-describedby="el-popover-{{$item->id}}" tabindex="0">
                                                                     <span data-v-686e7260="" class="el-avatar el-avatar--square">
                                                                         <img src="{{$item->app_image}}"
                                                                              style="object-fit: cover;">
                                                                     </span>
-                                                                    <div data-v-686e7260="" class="right">
+                                                                    <div data-v-686e7260="" class="right" style="max-width: calc(83% - 76px);">
                                                                         <p data-v-686e7260="" class="nickname">{{$item->app_name}}</p>
                                                                         <p data-v-686e7260="" class="domain">{{$item->root_path}}</p>
                                                                     </div>
+                                                                    <a class="el-button btn-save-record el-button--primary" href="{{route('detail', $item->id)}}"
+                                                                       target="_blank" style="padding: 10px">広告詳細</a>
                                                                 </div>
                                                             </span>
                                                         </span>
@@ -42,12 +44,12 @@
                             </div>
                             <div data-v-686e7260="" class="other-info">
                                 <div data-v-686e7260="" class="el-tooltip create-time btn item"
-                                     aria-describedby="el-tooltip-724" tabindex="0">
-                                    <svg data-v-7e6c6234="" data-v-686e7260=""
-                                         aria-hidden="true" class="svg-icon">
-                                        <use data-v-7e6c6234="" xlink:href="#icon-rili2"></use>
-                                    </svg>
-                                    <span data-v-686e7260=""> {{date('Y-m-d', (int)($item->create_time))}}</span>
+                                     aria-describedby="el-tooltip-724" tabindex="0" style="padding: 5px;">
+{{--                                    <svg data-v-7e6c6234="" data-v-686e7260=""--}}
+{{--                                         aria-hidden="true" class="svg-icon">--}}
+{{--                                        <use data-v-7e6c6234="" xlink:href="#icon-rili2"></use>--}}
+{{--                                    </svg>--}}
+                                    <span data-v-686e7260="">公開日: {{date('Y-m-d', (int)($item->create_time))}}</span>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +63,7 @@
                                 </div>
                                 <div data-v-686e7260="" class="time">{{$item->duration}}s</div>
                                 <div data-v-686e7260="" class="video-play-icon">
-                                    <svg data-v-7e6c6234="" data-v-686e7260=""
-                                         aria-hidden="true" class="svg-icon">
+                                    <svg data-v-7e6c6234="" data-v-686e7260="" aria-hidden="true" class="svg-icon">
                                         <use data-v-7e6c6234="" xlink:href="#icon-bofang"></use>
                                     </svg>
                                 </div>
@@ -72,12 +73,12 @@
                             <div data-v-686e7260="" class="button-text-copy had-right-btn">
                                 <div data-v-686e7260="" class="left">
                                     <h5 data-v-686e7260="" class="title">
-                                                                <span data-v-686e7260="" class="el-tooltip tooltipInline item"
-                                                                      aria-describedby="el-tooltip-3352" tabindex="0"> {{$item->app_title}} </span>
+                                        <span data-v-686e7260="" class="el-tooltip tooltipInline item"
+                                              aria-describedby="el-tooltip-3352" tabindex="0"> {{$item->app_title}} </span>
                                     </h5>
                                     <p data-v-686e7260="" class="copy">
-                                                            <span data-v-686e7260="" class="el-tooltip tooltipInline item" aria-describedby="el-tooltip-6784"
-                                                                  tabindex="0">{{$item->desc}}</span>
+                                        <span data-v-686e7260="" class="el-tooltip tooltipInline item" aria-describedby="el-tooltip-6784"
+                                              tabindex="0">{{$item->desc}}</span>
                                     </p>
                                 </div>
                             </div>

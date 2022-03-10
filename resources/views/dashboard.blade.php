@@ -39,7 +39,31 @@
                                 <div data-v-c30b9c7c="" class="left">
                                 </div>
                                 <div data-v-c30b9c7c="" class="right">
-                                    <button data-v-c30b9c7c="" type="button" id="searchBtn" class="el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="fav" style="padding: 3.5px 15px;"
+                                            class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                        <div class="icon-wrapper">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <button data-v-c30b9c7c="" type="button" data-id="today" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                        <span> 本日 </span>
+                                    </button>
+                                    <button data-v-c30b9c7c="" type="button" data-id="week" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                        <span> 1週間 </span>
+                                    </button>
+                                    <button data-v-c30b9c7c="" type="button" data-id="thirty" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                        <span> 30日 </span>
+                                    </button>
+                                    <button data-v-c30b9c7c="" type="button" data-id="current" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                        <span> 今月 </span>
+                                    </button>
+                                    <button data-v-c30b9c7c="" type="button" data-id="prev" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                        <span> 先月 </span>
+                                    </button>
+                                    <button data-v-c30b9c7c="" type="button" data-id="search" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
                                         <span> 検索 </span>
                                     </button>
                                 </div>
@@ -69,14 +93,16 @@
             $('.flatpickr-range').flatpickr({
                 mode: 'range'
             });
-            getAdData();
-            $('#searchBtn').click(function (e) {
+            getAdData('search');
+            $('.searchBtn').click(function (e) {
                 e.preventDefault();
-                getAdData();
+                let type = $(this).data('id');
+                getAdData(type);
             })
         });
-        function getAdData() {
+        function getAdData(type) {
             var paramObj = new FormData($('#search_form')[0]);
+            paramObj.append('type', type);
             $.ajax({
                 url: get_ad,
                 type: 'post',

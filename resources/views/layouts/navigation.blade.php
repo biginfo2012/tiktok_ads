@@ -8,6 +8,19 @@
                     <img data-v-24d58c84="" src="{{asset('img/logo.png')}}" alt="" class="pipi-logo h-9 wt-mr-md-3">
                 </a><!---->
                 <div data-v-24d58c84="" class="menus hidden md:block">
+                    <div data-v-7b7e5175=""
+                         class="wt-height-full wt-display-inline-flex-xs wt-justify-content-flex-end">
+                        <ul data-v-7b7e5175=""
+                            class="wt-list-unstyled wt-display-flex-xs wt-justify-content-space-between">
+                            <li data-v-7b7e5175=""
+                                class="top-nav-item wt-mr-sm-2 wt-mr-md-2 wt-mr-lg-3 wt-mr-xl-6 wt-display-flex-xs wt-align-items-center">
+                                <a data-v-7b7e5175="" href="{{route('contact')}}" style="color: black"
+                                   class="menu-item a-link wt-display-flex-xs wt-height-full wt-align-items-center wt-width-full"
+                                   title="Pricing"> お問い合わせ <!---->
+                                </a><!---->
+                            </li><!---->
+                        </ul>
+                    </div>
                 </div>
                 <div data-v-0e997083="" data-v-24d58c84="" class="user-box" userinfo="[object Object]">
                     <span data-v-0e997083="">

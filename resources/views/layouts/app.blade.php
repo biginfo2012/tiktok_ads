@@ -17,6 +17,12 @@
     <link href="{{asset('')}}css/bootstrape/bootstrap.css" rel="stylesheet">
     <link href="{{asset('')}}css/flatpickr.min.css" rel="stylesheet">
 
+    <link href="{{asset('')}}css/chunk-1a6f22ef.bfe5e99f.css" rel="stylesheet">
+    <link href="{{asset('')}}css/chunk-16ea6b5e.20c5186a.css" rel="stylesheet">
+    <link href="{{asset('')}}css/chunk-60e61efc.8572b42f.css" rel="stylesheet">
+    <link href="{{asset('')}}css/chunk-768b06e0.72bdacbd.css" rel="stylesheet">
+    <link href="{{asset('')}}css/chunk-aba9fea0.b29a2270.css" rel="stylesheet">
+
     <link href="{{asset('')}}css/chunk-1c1feffb.2a3a9f4f.css" rel="stylesheet">
     <link href="{{asset('')}}css/chunk-3c6e3d14.fd2709f6.css" rel="stylesheet">
     <link href="{{asset('')}}css/chunk-6b87f7e3.fdd524db.css" rel="stylesheet">

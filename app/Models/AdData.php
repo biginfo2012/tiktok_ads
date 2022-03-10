@@ -30,4 +30,8 @@ class AdData extends Model
         'dest',
         'name'
     ];
+
+    public function fav(){
+        return $this->hasMany(AdFav::class, 'ad_id', 'id');
+    }
 }

@@ -7,12 +7,9 @@ function sendResetEmail($verify_code, $email){
     );
     Mail::to($email)->send(new \App\Mail\ResetPasswordEmail($details));
 }
-function sendTempEmail($password, $email){
-    $details = array(
-        'password'=> $password,
-        'email' => $email
-    );
-    Mail::to($email)->send(new \App\Mail\TempPasswordEmail($details));
+function sendContactEmail($data, $email){
+    $details = $data;
+    Mail::to($email)->send(new \App\Mail\SendContact($details));
 }
 function sendCreditCodeEmail($password, $email){
     $details = array(
