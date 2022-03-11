@@ -89,14 +89,15 @@
         let get_ad = '{{route('get-ad')}}';
         let fav_ad = '{{route('fav-ad')}}';
         let token = '{{csrf_token()}}';
+        let type = 'search';
         $(document).ready(function () {
             $('.flatpickr-range').flatpickr({
                 mode: 'range'
             });
-            getAdData('search');
+            getAdData(type);
             $('.searchBtn').click(function (e) {
                 e.preventDefault();
-                let type = $(this).data('id');
+                type = $(this).data('id');
                 getAdData(type);
             })
         });
@@ -117,17 +118,17 @@
 
         $(document).on('click', '.number', function () {
             $('#page').val($(this).text());
-            getAdData();
+            getAdData(type);
         })
         $(document).on('click', '.btn-prev', function () {
             let page = parseInt($(this).data('page')) - 1;
             $('#page').val(page);
-            getAdData();
+            getAdData(type);
         })
         $(document).on('click', '.btn-next', function () {
             let page = parseInt($(this).data('page')) + 1;
             $('#page').val(page);
-            getAdData();
+            getAdData(type);
         });
         $(document).on('click', '.btn-collect', function () {
             let id = $(this).data('id');

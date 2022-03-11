@@ -46,9 +46,14 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email
+        ];
+        sendRegisterEmail($data, 'user@rmj-ltd.com');
 
-        Auth::login($user);
+        //Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('pay-register', $user->id);
     }
 }

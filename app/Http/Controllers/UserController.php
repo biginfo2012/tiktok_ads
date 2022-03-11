@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Card;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class UserController extends Controller
     public function pay(Request $request){
         Stripe::setApiKey(env('STRIPE_SECRET'));
         $stripe_token = $request->stripeToken;
-        $email = $request->email;
+        $email = User::find($request->user_id)->email;
         $price = intval($request->price);
         $cus_id = null;
         $error = null;
@@ -65,10 +66,10 @@ class UserController extends Controller
 //            $card->save();
 
             $cardInfo = [
-                'email' => $request->email,
+                'email' => $email,
                 'stripe_cus_id' => $cus_id
             ];
-            //Card::updateOrCreate(['user_id' => Auth::id()], $cardInfo);
+            Card::updateOrCreate(['user_id' => $request->user_id], $cardInfo);
         } catch (CardException $e) {
             $body = $e->getJsonBody();
             $err = $body['error'];
@@ -137,7 +138,7 @@ class UserController extends Controller
 
         //write payment log
         $log = [
-            'user_id' => Auth::id(),
+            'user_id' => 1,
             'price' => $price,
             'status' => $status,
             'paid_date' => date('Y-m-d'),
@@ -146,6 +147,7 @@ class UserController extends Controller
         ];
         //Payment::create($log);
 
+        User::where('id', $request->user_id)->update(['pay' => 1]);
         session()->flash('payment_success', 1);
 
         return redirect()->back();
@@ -164,5 +166,9 @@ class UserController extends Controller
         ];
         sendContactEmail($data, 'customer@rmj-ltd.com');
         return response()->json(['status' => true]);
+    }
+
+    public function payRegister($id){
+        return view('auth.pay', compact('id'));
     }
 }

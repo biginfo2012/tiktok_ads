@@ -35,8 +35,8 @@
 {{--                                        </svg>--}}
 {{--                                        <span data-v-1999854e="">Show password</span>--}}
 {{--                                    </span>--}}
-{{--                                    <a data-v-1999854e="" href="/find-password" class="btn-forget-password">--}}
-{{--                                        Forgot your password? </a><!---->--}}
+                                    <a data-v-1999854e="" href="{{ route('password.request') }}" class="btn-forget-password">
+                                        パスワードを忘れましたか？パスワード再設定する </a><!---->
                                 </div>
                             </div>
                             <button data-v-1999854e="" type="submit" class="el-button button-lg el-button--primary">

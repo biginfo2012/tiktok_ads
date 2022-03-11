@@ -40,8 +40,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div data-v-3a55e4f4="" class="el-form-item form-item-password is-success is-required is-no-asterisk"><label
-                                    for="password" class="el-form-item__label">パスワードの確認*</label>
+                            <div data-v-3a55e4f4="" class="el-form-item form-item-password is-success is-required is-no-asterisk">
+                                <label for="password" class="el-form-item__label">パスワードの確認*</label>
                                 <div class="el-form-item__content">
                                     <p data-v-3a55e4f4="" class="text-input-type type-password isEn"></p>
                                     <div data-v-3a55e4f4="" class="el-input"><!---->

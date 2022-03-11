@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('pay-register/{id}', [UserController::class, 'payRegister'])->name('pay-register');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('dashboard', [AdController::class, 'dashboard'])->name('dashboard');
 

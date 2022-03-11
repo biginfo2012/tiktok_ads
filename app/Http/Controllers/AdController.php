@@ -131,7 +131,12 @@ class AdController extends Controller
     }
 
     public function dashboard(){
-        return view('dashboard');
+        if(Auth::user()->pay == 1){
+            return view('dashboard');
+        }
+        else{
+            return redirect()->back();
+        }
     }
 
     public function detail($id){

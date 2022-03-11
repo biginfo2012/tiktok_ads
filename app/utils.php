@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Mail;
-function sendResetEmail($verify_code, $email){
-    $details = array(
-        'verify_code'=> $verify_code
-    );
-    Mail::to($email)->send(new \App\Mail\ResetPasswordEmail($details));
+function sendRegisterEmail($details, $email){
+    Mail::to($email)->send(new \App\Mail\SendRegister($details));
 }
 function sendContactEmail($data, $email){
     $details = $data;

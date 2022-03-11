@@ -137,11 +137,9 @@
                             <div class="col-lg-12">
                                 <form action="{{route('pay')}}" method="post" id="payment-form">
                                     @csrf
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                                     <h3 class="text-center pricing text-white"></h3>
                                     <div style="padding: 20px">
-                                        <div class="form-group">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="メールアドレス" required>
-                                        </div>
                                         <div class="form-group">
                                             <div id="card-element" class="w-100 card-element"></div>
 
