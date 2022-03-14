@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('contact', [UserController::class, 'contact'])->name('contact');
+Route::post('send-contact', [UserController::class, 'sendContact'])->name('send-contact');
 Route::get('pay-register/{id}', [UserController::class, 'payRegister'])->name('pay-register');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('dashboard', [AdController::class, 'dashboard'])->name('dashboard');
@@ -34,8 +36,8 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('modify', [UserController::class, 'modify'])->name('modify');
     Route::post('pw-modify', [UserController::class, 'pwModify'])->name('pw-modify');
     Route::post('pay', [UserController::class, 'pay'])->name('pay');
-    Route::get('contact', [UserController::class, 'contact'])->name('contact');
-    Route::post('send-contact', [UserController::class, 'sendContact'])->name('send-contact');
+
+
 
 });
 

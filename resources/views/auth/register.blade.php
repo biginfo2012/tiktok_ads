@@ -71,6 +71,9 @@
                             </button>
                         </a>
                     </div>
+                    <a href="{{route('contact')}}" style="color: #22b2c7; margin-top: 27px;font-size: 16px;"
+                       class=""> お問い合わせ <!---->
+                    </a><!---->
                 </div>
             </div>
         </div>

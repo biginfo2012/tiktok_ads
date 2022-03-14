@@ -8,7 +8,8 @@
                         <p data-v-1999854e="" class="title"> Login </p>
 {{--                        <p data-v-1999854e="" class="desc"> Welcome </p>--}}
                     </div>
-                    <div data-v-1999854e="" class="form-main">
+                    <img data-v-24d58c84="" src="{{asset('img/logo.png')}}" alt="" class="" style="width: 50%;text-align: center;margin-top: 30px;">
+                    <div data-v-1999854e="" class="form-main" style="margin-top: 10px">
                         <form data-v-1999854e="" class="el-form el-form--label-top" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div data-v-1999854e="" class="el-form-item is-success is-required is-no-asterisk">

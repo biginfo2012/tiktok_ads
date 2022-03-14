@@ -191,9 +191,9 @@ class AdController extends Controller
         }
 
         if(isset($request->genre)){
-            $genre = explode(',', $request->genre);
+            $genre = explode(' ', $request->genre);
             if(isset($request->dest)){
-                $dest = explode(',', $request->dest);
+                $dest = explode(' ', $request->dest);
                 if($request->type == 'fav'){
                     $user_id = Auth::user()->id;
                     $total = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
@@ -256,7 +256,7 @@ class AdController extends Controller
         }
         else{
             if(isset($request->dest)){
-                $dest = explode(',', $request->dest);
+                $dest = explode(' ', $request->dest);
                 if($request->type == 'fav'){
                     $user_id = Auth::user()->id;
                     $total = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})

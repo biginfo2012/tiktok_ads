@@ -124,7 +124,11 @@
         <div data-v-13cd94f9="" data-v-3de391ff="" class="page-order">
             <div data-v-13cd94f9="" class="wrap">
                 <div data-v-13cd94f9="" class="section-item"><h3 data-v-13cd94f9="" class="title">支払い</h3>
-                    <div data-v-13cd94f9="" class="table-normal">
+                    <p class="mt-2" style="margin-top: 30px; font-size: 16px">支払金額は11,000円になります。<br>
+                        今後は毎月1日に自動支払われます。<br>
+                        支払い前までは広告検索ができません。
+                    </p>
+                    <div data-v-13cd94f9="" class="table-normal mt-0">
                         <div class="log mb-5">
                             @if(session('error'))
                                 <h5 class="text-center mb-0" style="color: red">カード情報をもう一度ご確認ください。</h5>

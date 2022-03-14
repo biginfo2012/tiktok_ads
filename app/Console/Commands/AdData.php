@@ -150,6 +150,7 @@ class AdData extends Command
                     'app_title' => $item['app_title'],
                     'url' => $item['url'],
                     'cover' => $item['cover'],
+                    'status' => 0
                 ];
                 Log::info('searchAd ad_id:' . $item['ad_id']);
                 \App\Models\GetAd::updateOrCreate(['ad_id' => $ad_id], $ad);

@@ -6,7 +6,11 @@
                     <div data-v-3a55e4f4="" class="form-title">
                         <p data-v-3a55e4f4="" class="title"> 登録 </p>
                     </div>
-                    <div data-v-3a55e4f4="" class="form-main">
+                    <p class="text-center mt-4" style="margin-top: 30px; font-size: 20px">支払金額は11,000円になります。<br>
+                        今後は毎月1日に自動支払われます。<br>
+                        支払い前までは広告検索ができません。
+                    </p>
+                    <div data-v-3a55e4f4="" class="form-main" style="margin-top: 15px">
                         <div data-v-13cd94f9="" data-v-3de391ff="" class="">
                             <label for="password" class="el-form-item__label">支払情報*</label>
                             <div data-v-13cd94f9="" class="wrap">
