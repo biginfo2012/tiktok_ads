@@ -1,6 +1,6 @@
 <div data-v-035982d7="">
     <div data-v-035982d7="" element-loading-text="Loading..."
-         element-loading-spinner="el-icon-loading" class="videos-list dataMain">
+         element-loading-spinner="el-icon-loading" class="videos-list dataMain" style="position: relative">
         <ul data-v-035982d7=""
             class="lists-wrap wt-block-grid wt-list-unstyled wt-block-grid-xs-1 wt-block-grid-sm-1 wt-block-grid-md-2 wt-block-grid-lg-3 wt-block-grid-xl-4">
             @foreach($data as $item)
@@ -105,8 +105,7 @@
             @endforeach
         </ul><!---->
         <div class="el-loading-mask" style="display: none;">
-            <div class="el-loading-spinner"><i class="el-icon-loading"></i>
-                <p class="el-loading-text">ロード中...</p></div>
+            <div class="el-loading-spinner"><i class="el-icon-loading"></i></div>
         </div>
     </div>
 </div><!---->

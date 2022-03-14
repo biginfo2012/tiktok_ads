@@ -20032,10 +20032,10 @@ body {
     z-index: 2000;
     background-color: hsla(0, 0%, 100%, .9);
     margin: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 50px;
+    right: 50%;
+    /*bottom: 0;*/
+    /*left: 0;*/
     -webkit-transition: opacity .3s;
     -o-transition: opacity .3s;
     transition: opacity .3s

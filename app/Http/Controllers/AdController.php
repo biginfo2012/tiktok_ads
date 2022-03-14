@@ -7,6 +7,7 @@ use App\Models\AdData;
 use App\Models\AdFav;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class AdController extends Controller
@@ -173,19 +174,19 @@ class AdController extends Controller
             }
             else if($type == 'current'){
                 $start_date = strtotime(date('Y-m-01') . ' 00:00:00');
-                $end_date = date('Y-m-d H:i:s');
+                $end_date = strtotime(date('Y-m-d H:i:s'));
             }
             else if($type == 'thirty'){
                 $start_date = strtotime(date('Y-m-d', strtotime('-30 days')) . ' 00:00:00');
-                $end_date = date('Y-m-d H:i:s');
+                $end_date = strtotime(date('Y-m-d H:i:s'));
             }
             else if($type == 'week'){
                 $start_date = strtotime(date('Y-m-d', strtotime('-7 days')) . ' 00:00:00');
-                $end_date = date('Y-m-d H:i:s');
+                $end_date = strtotime(date('Y-m-d H:i:s'));
             }
             else{
-                $start_date = date('Y-m-d H:i:s') . ' 00:00:00';
-                $end_date = date('Y-m-d H:i:s');
+                $start_date = strtotime(date('Y-m-d') . ' 00:00:00');
+                $end_date = strtotime(date('Y-m-d H:i:s'));
             }
         }
 
@@ -196,40 +197,60 @@ class AdController extends Controller
                 if($request->type == 'fav'){
                     $user_id = Auth::user()->id;
                     $total = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
-                        ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->whereIn('dest', $dest)->get()->count();
+                        ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
                     $data = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
                         ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->whereIn('dest', $dest)->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                        ->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
                 else{
-                    $total = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->whereIn('dest', $dest)->get()->count();
-                    $data = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->whereIn('dest', $dest)->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                    $total = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                        ->where(function($query) use ($genre) {
+                            foreach($genre as $word){
+                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                            }
+                        })
+                        ->where(function($query) use ($dest) {
+                            foreach($dest as $word){
+                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                            }
+                        })->get()->count();
+                    $data = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                        ->where(function($query) use ($genre) {
+                            foreach($genre as $word){
+                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                            }
+                        })
+                        ->where(function($query) use ($dest) {
+                            foreach($dest as $word){
+                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                            }
+                        })->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
-
             }
             else{
                 if($request->type == 'fav'){
                     $user_id = Auth::user()->id;
                     $total = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
                         ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->get()->count();
+                        ->get()->count();
                     $data = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
                         ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->offset(($page - 1) * 20)->limit(20)
+                        ->offset(($page - 1) * 20)->limit(20)
                         ->orderBy('updated_at', 'desc')->get();
                 }
                 else{
-                    $total = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)->get()->count();
-                    $data = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->whereIn('genre', $genre)
-                        ->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                    $total = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                        ->where(function($query) use ($genre) {
+                            foreach($genre as $word){
+                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                            }
+                        })->get()->count();
+                    $data = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                        ->where(function($query) use ($genre) {
+                            foreach($genre as $word){
+                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                            }
+                        })->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
             }
         }
@@ -239,20 +260,28 @@ class AdController extends Controller
                 if($request->type == 'fav'){
                     $user_id = Auth::user()->id;
                     $total = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
-                        ->whereIn('dest', $dest)->where('create_time', '>=', $start_date)
+                        ->where('create_time', '>=', $start_date)
                         ->where('create_time', '<=', $end_date)->get()->count();
                     $data = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
-                        ->whereIn('dest', $dest)->where('create_time', '>=', $start_date)
-                        ->where('create_time', '<=', $end_date)->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                        ->where('create_time', '>=', $start_date)
+                        ->where('create_time', '<=', $end_date)->orderBy('updated_at', 'desc')
+                        ->offset(($page - 1) * 20)->limit(20)
+                        ->get();
                 }
                 else{
-                    $total = AdData::whereIn('dest', $dest)
-                        ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
-                    $data = AdData::whereIn('dest', $dest)
-                        ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                    $total = DB::table('ad_data')->where(function($query) use ($dest) {
+                            foreach($dest as $word){
+                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                            }
+                        })->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
+                    $data = DB::table('ad_data')->where(function($query) use ($dest) {
+                            foreach($dest as $word){
+                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                            }
+                        })->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
+                        ->orderBy('updated_at', 'desc')
                         ->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                        ->get();
                 }
             }
             else{
@@ -262,14 +291,12 @@ class AdController extends Controller
                         ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
                     $data = AdData::with('fav')->whereHas('fav', function($query) use ($user_id){$query->where('user_id', $user_id);})
                         ->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                        ->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
                 else{
                     $total = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
                     $data = AdData::where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
-                        ->offset(($page - 1) * 20)->limit(20)
-                        ->orderBy('updated_at', 'desc')->get();
+                        ->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
             }
         }

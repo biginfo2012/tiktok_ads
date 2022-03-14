@@ -4,6 +4,17 @@
             fill: red;
             stroke: red;
         }
+        .btn-dark {
+            color: #fff;
+            background-color: #4b4b4b !important;
+            border-color: #4b4b4b !important;
+        }
+
+        .btn-search {
+            color: #fff;
+            background-color: #22b2c7;
+            border-color: #22b2c7;
+        }
     </style>
     <div data-v-c30b9c7c="" class="search">
         <div data-v-c30b9c7c="" id="sectionTop" class="section-top">
@@ -40,7 +51,7 @@
                                 </div>
                                 <div data-v-c30b9c7c="" class="right">
                                     <button data-v-c30b9c7c="" type="button" data-id="fav" style="padding: 3.5px 15px;"
-                                            class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                            class="searchBtn btn-dark el-button btn-save-record el-button--primary"><!----><!---->
                                         <div class="icon-wrapper">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
@@ -48,22 +59,23 @@
                                             </svg>
                                         </div>
                                     </button>
-                                    <button data-v-c30b9c7c="" type="button" data-id="today" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="today" class="searchBtn btn-dark el-button btn-save-record el-button--primary"><!----><!---->
                                         <span> 本日 </span>
                                     </button>
-                                    <button data-v-c30b9c7c="" type="button" data-id="week" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="week" class="searchBtn btn-dark el-button btn-save-record el-button--primary"><!----><!---->
                                         <span> 1週間 </span>
                                     </button>
-                                    <button data-v-c30b9c7c="" type="button" data-id="thirty" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="thirty" class="searchBtn btn-dark el-button btn-save-record el-button--primary"><!----><!---->
                                         <span> 30日 </span>
                                     </button>
-                                    <button data-v-c30b9c7c="" type="button" data-id="current" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="current" class="searchBtn btn-dark el-button btn-save-record el-button--primary"><!----><!---->
                                         <span> 今月 </span>
                                     </button>
-                                    <button data-v-c30b9c7c="" type="button" data-id="prev" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="prev" class="searchBtn btn-dark el-button btn-save-record el-button--primary"><!----><!---->
                                         <span> 先月 </span>
                                     </button>
-                                    <button data-v-c30b9c7c="" type="button" data-id="search" class="searchBtn el-button btn-save-record el-button--primary"><!----><!---->
+                                    <button data-v-c30b9c7c="" type="button" data-id="search" class="searchBtn btn-search el-button btn-save-record el-button--primary"
+                                        style="background-color: #22b2c7 !important; border-color: #22b2c7 !important;"><!----><!---->
                                         <span> 検索 </span>
                                     </button>
                                 </div>
@@ -97,13 +109,30 @@
             getAdData(type);
             $('.searchBtn').click(function (e) {
                 e.preventDefault();
-                type = $(this).data('id');
+                $t = $(this);
+                if($t.hasClass('btn-dark')){
+                    $('.searchBtn').each(function () {
+                        if(!$(this).hasClass('btn-dark')){
+                            $(this).addClass('btn-dark');
+                        }
+
+                    })
+                    $t.removeClass('btn-dark');
+
+                    type = $(this).data('id');
+                }
+                else{
+                    $t.addClass('btn-dark');
+                    type = 'search';
+                }
+
                 getAdData(type);
             })
         });
         function getAdData(type) {
             var paramObj = new FormData($('#search_form')[0]);
             paramObj.append('type', type);
+            showLoading();
             $.ajax({
                 url: get_ad,
                 type: 'post',
@@ -111,9 +140,16 @@
                 contentType: false,
                 processData: false,
                 success: function(response){
+                    hideLoading();
                     $('#ad-list').html(response);
                 },
             });
+        }
+        function showLoading(){
+            $('.el-loading-mask').show();
+        }
+        function hideLoading(){
+            $('.el-loading-mask').hide();
         }
 
         $(document).on('click', '.number', function () {

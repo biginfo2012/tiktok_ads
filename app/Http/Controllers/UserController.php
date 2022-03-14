@@ -86,11 +86,11 @@ class UserController extends Controller
 
         try {
             $charge = Charge::create([
-                "amount" => $price * 100,
+                "amount" => 11000,
                 "currency" => "JPY",
                 "customer" => $cus_id,
                 "capture" => false,
-                'description' => "Buying Chips"
+                'description' => "支払い"
             ]);
 
             $source = $charge->source;
