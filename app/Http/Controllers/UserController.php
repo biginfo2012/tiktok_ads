@@ -15,6 +15,10 @@ use Stripe\Stripe;
 class UserController extends Controller
 {
     //
+    public function user(Request $request){
+        return view('user');
+    }
+
     public function modify(Request $request){
         User::where('id', Auth::user()->id)->update(['name' => $request->name]);
         return response()->json(['status' => true]);
@@ -147,10 +151,14 @@ class UserController extends Controller
         ];
         //Payment::create($log);
 
-        User::where('id', $request->user_id)->update(['pay' => 1]);
+        User::where('id', $request->user_id)->update(['pay' => 1, 'pay_time' => date('Y-m-d')]);
         session()->flash('payment_success', 1);
 
         return redirect()->back();
+    }
+    public function paySetting(Request $request){
+        User::where('id', Auth::user()->id)->update(['pay' => 2]);
+        return response()->json(['status' => true]);
     }
 
     public function contact(){

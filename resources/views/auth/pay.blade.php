@@ -6,9 +6,16 @@
                     <div data-v-3a55e4f4="" class="form-title">
                         <p data-v-3a55e4f4="" class="title"> 登録 </p>
                     </div>
-                    <p class="text-center mt-4" style="margin-top: 30px; font-size: 20px">支払金額は11,000円になります。<br>
-                        今後は毎月1日に自動支払われます。<br>
-                        支払い前までは広告検索ができません。
+                    <p class="mt-4" style="margin-top: 30px; font-size: 18px">支払金額       　11,000円/月（税込）<br><br>
+
+                        毎月1日に自動支払われます。<br>
+                        支払い完了後にサービス開始になります。<br><br>
+
+                        <label style="font-size: 14px">
+                            注意事項：途中解約の際でも分割日数などの返金は一切ございませんのでご了承ください。<br>
+                            決済と同時に当サービスのサブスプリクションに同意したことを了承したこととします。
+                        </label>
+
                     </p>
                     <div data-v-3a55e4f4="" class="form-main" style="margin-top: 15px">
                         <div data-v-13cd94f9="" data-v-3de391ff="" class="">

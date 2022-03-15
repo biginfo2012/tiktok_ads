@@ -124,9 +124,16 @@
         <div data-v-13cd94f9="" data-v-3de391ff="" class="page-order">
             <div data-v-13cd94f9="" class="wrap">
                 <div data-v-13cd94f9="" class="section-item"><h3 data-v-13cd94f9="" class="title">支払い</h3>
-                    <p class="mt-2" style="margin-top: 30px; font-size: 16px">支払金額は11,000円になります。<br>
-                        今後は毎月1日に自動支払われます。<br>
-                        支払い前までは広告検索ができません。
+                    <p class="mt-2" style="margin-top: 30px; font-size: 16px">製品名 　　PIKAICHI-TT checker<br>
+                        支払金額       　11,000円/月（税込）<br><br>
+
+                        毎月1日に自動支払われます。<br>
+                        支払い完了後にサービス開始になります。<br><br>
+
+                        <label style="font-size: 14px">
+                            注意事項：途中解約の際でも分割日数などの返金は一切ございませんのでご了承ください。<br>
+                            決済と同時に当サービスのサブスプリクションに同意したことを了承したこととします。
+                        </label>
                     </p>
                     <div data-v-13cd94f9="" class="table-normal mt-0">
                         <div class="log mb-5">
@@ -162,6 +169,30 @@
 
                     </div>
                 </div><!---->
+                <div data-v-13cd94f9="" class="section-item"><h3 data-v-13cd94f9="" class="title">決済状態</h3>
+                    @if(Auth::user()->pay == 1)
+                        <p style="margin-top: 30px; font-size: 16px">当月分の支払い</p>
+                        <p class="mt-2" style="margin-top: 30px; font-size: 16px">支払いを取り消したら来月からサービスを利用できません。
+                        </p>
+                        <div data-v-13cd94f9="" class="table-normal mt-0">
+                            <div class="row payment">
+                                <div class="col-lg-12">
+                                    <div class="button-group d-flex align-items-center justify-content-between">
+                                        <button type="submit" class="btn btn-primary" id="btnPay">
+                                            決済キャンセル
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @elseif(Auth::user()->pay == 2)
+                        <p style="margin-top: 30px; font-size: 16px">支払い取り消し</p>
+                    @else
+                        <p style="margin-top: 30px; font-size: 16px">不払い</p>
+                    @endif
+
+
+                </div><!---->
             </div>
         </div>
     </div>
@@ -170,8 +201,22 @@
     <script>
         let modify = '{{route('modify')}}';
         let pw_modify = '{{route('pw-modify')}}';
+        let pay_setting = '{{route('pay-setting')}}';
         $('#change-password').click(function () {
             $('#passwordChangeModal').modal('show');
+        })
+        $('#btnPay').click(function (e) {
+            var paramObj = new FormData($('#modify_form')[0]);
+            $.ajax({
+                url: pay_setting,
+                type: 'post',
+                data: paramObj,
+                contentType: false,
+                processData: false,
+                success: function(response){
+                    window.location.reload();
+                },
+            });
         })
         $('#modifyBtn').click(function (e) {
             e.preventDefault();

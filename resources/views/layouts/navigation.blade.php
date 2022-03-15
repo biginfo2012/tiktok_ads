@@ -1,10 +1,18 @@
+<?php
+$newdate = date("Y-m-01", strtotime ( '+1 month' , strtotime ( Auth::user()->pay_time )));
+$today  = date('Y-m-d');
+$is_today = false;
+if($newdate > $today){
+    $is_today = true;
+}
+?>
 <header data-v-24d58c84="" class="site-header isEn isLogin">
     <div data-v-24d58c84=""
          class="wt-grid wt-body-max-width wt-pr-xs-1 wt-pl-xs-1 wt-pr-md-2 wt-pl-md-2 wt-pr-lg-3 wt-pl-lg-3">
         <div data-v-24d58c84=""
              class="wt-grid__item-xs-12 wt-pr-xs-1 wt-pl-xs-1 wt-pr-md-2 wt-pl-md-2 wt-pr-lg-3 wt-pl-lg-3">
             <div data-v-24d58c84="" class="flex wt-align-items-center">
-                <a data-v-24d58c84="" href="{{Auth::user()->pay == 1 ? route('dashboard') : ''}}" class="hidden md:block router-link-active">
+                <a data-v-24d58c84="" href="{{$is_today == true ? route('dashboard') : ''}}" class="hidden md:block router-link-active">
                     <img data-v-24d58c84="" src="{{asset('img/logo.png')}}" alt="" class="pipi-logo h-9 wt-mr-md-3">
                 </a><!---->
                 <div data-v-24d58c84="" class="menus hidden md:block">

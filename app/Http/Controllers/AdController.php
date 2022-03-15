@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\AdData;
 use App\Models\AdFav;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -135,6 +136,16 @@ class AdController extends Controller
         if(Auth::user()->pay == 1){
             return view('dashboard');
         }
+        else if(Auth::user()->pay == 2){
+            $newdate = date("Y-m-01", strtotime ( '+1 month' , strtotime ( Auth::user()->pay_time )));
+            $today  = date('Y-m-d');
+            if($newdate > $today){
+                return view('dashboard');
+            }
+            else{
+                return redirect()->back();
+            }
+        }
         else{
             return redirect()->back();
         }
@@ -206,23 +217,23 @@ class AdController extends Controller
                     $total = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
                         ->where(function($query) use ($genre) {
                             foreach($genre as $word){
-                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                                $query->where('genre', 'like', '%'.$word.'%');
                             }
                         })
                         ->where(function($query) use ($dest) {
                             foreach($dest as $word){
-                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                                $query->where('dest', 'like', '%'.$word.'%');
                             }
                         })->get()->count();
                     $data = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
                         ->where(function($query) use ($genre) {
                             foreach($genre as $word){
-                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                                $query->where('genre', 'like', '%'.$word.'%');
                             }
                         })
                         ->where(function($query) use ($dest) {
                             foreach($dest as $word){
-                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                                $query->where('dest', 'like', '%'.$word.'%');
                             }
                         })->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
@@ -242,13 +253,13 @@ class AdController extends Controller
                     $total = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
                         ->where(function($query) use ($genre) {
                             foreach($genre as $word){
-                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                                $query->where('genre', 'like', '%'.$word.'%');
                             }
                         })->get()->count();
                     $data = DB::table('ad_data')->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
                         ->where(function($query) use ($genre) {
                             foreach($genre as $word){
-                                $query->orWhere('genre', 'like', '%'.$word.'%');
+                                $query->where('genre', 'like', '%'.$word.'%');
                             }
                         })->orderBy('updated_at', 'desc')->offset(($page - 1) * 20)->limit(20)->get();
                 }
@@ -271,12 +282,12 @@ class AdController extends Controller
                 else{
                     $total = DB::table('ad_data')->where(function($query) use ($dest) {
                             foreach($dest as $word){
-                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                                $query->where('dest', 'like', '%'.$word.'%');
                             }
                         })->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)->get()->count();
                     $data = DB::table('ad_data')->where(function($query) use ($dest) {
                             foreach($dest as $word){
-                                $query->orWhere('dest', 'like', '%'.$word.'%');
+                                $query->where('dest', 'like', '%'.$word.'%');
                             }
                         })->where('create_time', '>=', $start_date)->where('create_time', '<=', $end_date)
                         ->orderBy('updated_at', 'desc')

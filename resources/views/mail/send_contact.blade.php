@@ -1,5 +1,5 @@
-<h2>PAKAICHI-TTchecker問い合わせ</h2>
-<p>PAKAICHI-TTcheckerで問い合わせフォームから問い合わせがありました。</p>
+<h2>PIKAICHI-TTchecker問い合わせ</h2>
+<p>PIKAICHI-TTcheckerで問い合わせフォームから問い合わせがありました。</p>
 <span>お問い合わせ内容:</span><br>
 <span>件名: {{$details['title']}}</span><br>
 <span>名前: {{$details['name']}}</span><br>

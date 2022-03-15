@@ -23,22 +23,15 @@ Route::post('send-contact', [UserController::class, 'sendContact'])->name('send-
 Route::get('pay-register/{id}', [UserController::class, 'payRegister'])->name('pay-register');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('dashboard', [AdController::class, 'dashboard'])->name('dashboard');
-
     Route::get('detail/{id}', [AdController::class, 'detail'])->name('detail');
-
-    Route::get('/user', function () {
-        return view('user');
-    })->name('user');
-
     Route::post('get-ad', [AdController::class, 'getAdData'])->name('get-ad');
     Route::post('fav-ad', [AdController::class, 'favAd'])->name('fav-ad');
     Route::post('save-ad', [AdController::class, 'saveAd'])->name('save-ad');
     Route::post('modify', [UserController::class, 'modify'])->name('modify');
     Route::post('pw-modify', [UserController::class, 'pwModify'])->name('pw-modify');
     Route::post('pay', [UserController::class, 'pay'])->name('pay');
-
-
-
+    Route::post('pay-setting', [UserController::class, 'paySetting'])->name('pay-setting');
+    Route::get('user', [UserController::class, 'user'])->name('user');
 });
 
 

@@ -34,7 +34,13 @@ class AuthenticatedSessionController extends Controller
         if(Auth::user()->pay == 0){
             return redirect()->intended(RouteServiceProvider::USER);
         }
-
+        else if(Auth::user()->pay == 2){
+            $newdate = date("Y-m-01", strtotime ( '+1 month' , strtotime ( Auth::user()->pay_time )));
+            $today  = date('Y-m-d');
+            if($newdate < $today){
+                return redirect()->intended(RouteServiceProvider::USER);
+            }
+        }
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
