@@ -1,6 +1,7 @@
-<x-app-layout>
+<x-guest-layout>
     <div data-v-2ca53381="" class="container">
-        <div data-v-980f0854="" data-v-2ca53381="" class="page-apply"><h5 data-v-980f0854="" class="title mb-2"> お問い合わせ </h5>
+        <div data-v-980f0854="" data-v-2ca53381="" class="page-apply" style="background: none;">
+            <h5 data-v-980f0854="" class="title mb-2" style="margin-bottom: 20px"> お問い合わせ </h5>
 {{--            <p data-v-980f0854="" class="p1"> Do you have your own fan base, or do you have a social community, or do--}}
 {{--                you have friends who need to use pipiads ? </p>--}}
 {{--            <p data-v-980f0854="" class="p2"> If possible, we would like to invite you to join our affiliate program and--}}
@@ -107,4 +108,4 @@
         })
 
     </script>
-</x-app-layout>
+</x-guest-layout>

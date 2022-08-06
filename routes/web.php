@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::get('contact', [UserController::class, 'contact'])->name('contact');
+Route::post('pay', [UserController::class, 'pay'])->name('pay');
 Route::post('send-contact', [UserController::class, 'sendContact'])->name('send-contact');
 Route::get('pay-register/{id}', [UserController::class, 'payRegister'])->name('pay-register');
 Route::group(['middleware' => 'auth'], function (){
@@ -29,7 +30,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('save-ad', [AdController::class, 'saveAd'])->name('save-ad');
     Route::post('modify', [UserController::class, 'modify'])->name('modify');
     Route::post('pw-modify', [UserController::class, 'pwModify'])->name('pw-modify');
-    Route::post('pay', [UserController::class, 'pay'])->name('pay');
+
     Route::post('pay-setting', [UserController::class, 'paySetting'])->name('pay-setting');
     Route::get('user', [UserController::class, 'user'])->name('user');
 });

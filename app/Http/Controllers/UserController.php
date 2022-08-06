@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Stripe\Charge;
 use Stripe\Customer;
 use Stripe\Exception\CardException;
@@ -37,7 +38,7 @@ class UserController extends Controller
         Stripe::setApiKey(env('STRIPE_SECRET'));
         $stripe_token = $request->stripeToken;
         $email = User::find($request->user_id)->email;
-        $price = intval($request->price);
+        Log::error('e: ' . $email);
         $cus_id = null;
         $error = null;
         try {
@@ -46,17 +47,21 @@ class UserController extends Controller
                 'source' => $stripe_token
             ]);
             $cus_id = $customer->id;
+            Log::error('error1: ' . $error);
 
         } catch (CardException $e) {
             $body = $e->getJsonBody();
             $err = $body['error'];
             $error = 'Customer ' . $email . ': error: ' . $err['code'];
+            Log::error('e: ' . $e);
         } catch (\Exception $e) {
             $error = 'Stripe Api Issue :' . $e->getCode();
+            Log::error('e: ' . $e);
         }
 
         if ($error != null) {
             session()->flash('error', $error);
+            Log::error('error1: ' . $error);
             return redirect()->back();
         }
 
@@ -78,13 +83,16 @@ class UserController extends Controller
             $body = $e->getJsonBody();
             $err = $body['error'];
             $error = 'Customer ' . $email . ': error: ' . $err['code'];
+            Log::error('e: ' . $e);
         } catch (\Exception $e) {
             $error = 'Stripe Api Issue :' . $e->getCode();
+            Log::error('e: ' . $e);
         }
         if ($error != null) {
             $cu = Customer::retrieve($cus_id);
             $cu->delete();
             session()->flash('error', $error);
+            Log::error('error2: ' . $error);
             return redirect()->back();
         }
 
@@ -120,6 +128,7 @@ class UserController extends Controller
                 $cu = Customer::retrieve($cus_id);
                 $cu->delete();
                 session()->flash('error', $error);
+                Log::error('error3: ' . $error);
                 return redirect()->back();
             }
 
@@ -130,30 +139,33 @@ class UserController extends Controller
             if ($err['decline_code'] == 'do_not_honor') {
                 $error = 'Your card don\'t have funds or isn\'t active';
             }
+            Log::error('e: ' . $e);
         } catch (\Exception $e) {
             $error = 'The card validation cant be executed at this moment. Please retry later';
+            Log::error('e: ' . $e);
         }
         if ($error != null) {
             $cu = Customer::retrieve($cus_id);
             $cu->delete();
             session()->flash('error', $error);
+            Log::error('error4: ' . $error);
             return redirect()->back();
         }
 
         //write payment log
-        $log = [
-            'user_id' => 1,
-            'price' => $price,
-            'status' => $status,
-            'paid_date' => date('Y-m-d'),
-            'payment_id' => $ch_id,
-            'payment_method' => $payment_method,
-        ];
+//        $log = [
+//            'user_id' => 1,
+//            'price' => '11000',
+//            'status' => $status,
+//            'paid_date' => date('Y-m-d'),
+//            'payment_id' => $ch_id,
+//            'payment_method' => $payment_method,
+//        ];
         //Payment::create($log);
 
         User::where('id', $request->user_id)->update(['pay' => 1, 'pay_time' => date('Y-m-d')]);
         session()->flash('payment_success', 1);
-
+        Log::info('user_id: ' . $request->user_id);
         return redirect()->back();
     }
     public function paySetting(Request $request){

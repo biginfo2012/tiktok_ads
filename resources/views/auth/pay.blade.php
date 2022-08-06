@@ -45,20 +45,20 @@
                                                         </div>
                                                         <input type="hidden" id="price" name="price" value="1000">
                                                         <div class="button-group d-flex align-items-center justify-content-between mt-4">
-                                                            <button type="submit" class="el-button link el-button--text">
+                                                            <button type="submit" class="btn btn-primary">
                                                                 決済する
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </form>
-                                                <div data-v-3a55e4f4="" class="text-sub2">
-                                                    <a data-v-3a55e4f4="" href="{{route('login')}}" class="">
-                                                        <button data-v-3a55e4f4="" type="button" class="el-button link el-button--text"><!---->
-                                                            <!----><span>ログイン</span>
-                                                        </button>
-                                                    </a>
-                                                </div>
                                             </div>
+                                        </div>
+                                        <div data-v-3a55e4f4="" class="text-sub2">
+                                            <a data-v-3a55e4f4="" href="{{route('login')}}" class="">
+                                                <button data-v-3a55e4f4="" type="button" class="el-button link el-button--text"><!---->
+                                                    <!----><span>ログイン</span>
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div><!---->
